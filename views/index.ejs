@@ -1,0 +1,81 @@
+<%- include("partials/header.ejs") %>
+<div class="content-wraper content">
+<h1 class="rocknroll-one-regular">AnimeSage</h1>
+<div class="container home-page main">
+    <div>
+        <h3>Which anime to watch?</h3>
+        <form id="animeForm" action="/submit" method="post">
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre_id">
+                <% if(locals.genres){ %> 
+                <% genres.forEach((genre) => { %>
+                    <option value="<%= genre.mal_id %>"><%= genre.name %></option>
+                <% }); %>
+                <% } %>
+            </select>
+            <label for="episode">Episodes:</label>
+            <select id="episode" name="episode">
+                <option value="12">upto 12 episodes</option>
+                <option value="50">12-50 episodes</option>
+                <option value="999">more than 50 episodes</option>
+            </select>
+            <input id="post" type="submit" value="GO" formaction="/submit">
+        </form>
+        <div class="left">
+            <% if(locals.animeList){ %>
+                <% if(animeList.length>0){ %>
+                    <% animeList.forEach((anime)=>{ %>
+                        <div class="anime-card inside-content">
+                            <h4><%= anime.title %></h4>
+                            <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>">
+                            <ul>
+                                <li> status : <%= anime.status %></li>
+                                <li> episodes : <%= anime.episodes %></li>
+                                <li> genres : <% anime.genres.forEach((genreName) => { %> <%= genreName.name %> <% }); %></li>
+                                <% let synopsis = anime.synopsis 
+                                    if(synopsis.length>450){
+                                        synopsis = synopsis.slice(0,450) + "...";
+                                    }
+                                %>
+                                <li> synopsis : <%= synopsis %></li>
+                            </ul>
+                        </div>
+                    <% }); %>
+                <% }else{ %> <p> Sorry we couldn't find any anime matching the criteria.</p> <% } %>
+        <% }if (!locals.animeList) { %>
+            <div class="empty-state">
+                <p>🎌 Pick a genre and episode count to discover anime</p>
+            </div>
+        <% } %> 
+        </div>   
+    </div>
+    <div >
+        <div class="section-header">
+        <h3>Which anime character am I?</h3>
+        <form action="/randomChar" method="post">
+            <button  class="btn btn-secondary rounded-pill px-3" type="submit" >Go</button>
+        </form>
+        </div>
+        <div class="right">
+            <% if(locals.character){ %>
+                <div class="inside-content">
+                <h4><%= character.name %></h4>
+                <img src="<%= character.images.jpg.image_url %>" alt="<%= character.name %>">
+                <% 
+                    let about = character.about || "";
+                    if (about.length > 600) {
+                        about = about.slice(0, 600) + "...";
+                    }
+                %>
+                <p><%= about %></p>
+            </div>
+           <% }if (!locals.character) { %>
+            <div class="empty-state">
+                <p>🧙 Click GO to discover which anime character you are</p>
+            </div>
+        <% } %>
+        </div>
+    </div>
+</div>
+</div>
+<%- include("partials/footer.ejs") %>

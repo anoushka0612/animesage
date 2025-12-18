@@ -1,0 +1,31 @@
+<div class="trending-footer trending-header">
+<%- include("partials/header.ejs") %>
+<div class="content">
+<div class="container main">
+    <h1  class="rocknroll-one-regular">AnimeSage</h1>
+    <div class="trending">
+        <h3>Trending Anime 🔥</h2>
+        <div class="inside-content">  
+        <% if(locals.animeList){ %>
+            <% animeList.forEach((anime)=>{ %>
+                <h4><%= anime.title %></h4>
+                <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>">
+                <ul>
+                    <li> status : <%= anime.status %></li>
+                    <li> episodes : <%= anime.episodes %></li>
+                    <li> genres : <% anime.genres.forEach((genreName) => { %> <%= genreName.name %> <% }); %></li>
+                    <% let synopsis = anime.synopsis 
+                                    if(synopsis.length>450){
+                                        synopsis = synopsis.slice(0,450) + "...";
+                                    }
+                    %>
+                    <li> synopsis : <%= synopsis %></li>
+                </ul>
+            <% }) %>    
+        <% } %>
+    </div>  
+    </div>
+</div>
+</div>
+<%- include("partials/footer.ejs") %>
+</div>

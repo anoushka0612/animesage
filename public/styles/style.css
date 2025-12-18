@@ -1,0 +1,214 @@
+:root{
+    --header-height: 88px;
+    --footer-height: 57px;
+}
+.content{
+    background-color: #0D0B16;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    color: #E5E5E5;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+}
+.container{
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.rocknroll-one-regular {
+    font-family: "RocknRoll One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.home-page{
+    height: calc(100vh - 235px);
+    overflow: hidden;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+}
+.container.home-page {
+    padding: 0 20px 30px 20px; 
+    margin-bottom: 0px;
+    box-sizing: border-box;
+}
+.home-page > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    min-height: 0;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.main{
+    margin-top: 0px;
+}
+h3{
+    margin-bottom: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    color :#FFFFFF;
+}
+#animeForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; 
+    margin-bottom: 10px;
+}
+#animeForm label {
+    font-size: 16px;
+    margin-right: 4px;
+}
+#animeForm select {
+    padding: 4px 6px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+#animeForm select:focus {
+    outline: none;
+    border-color: #9333EA; 
+}
+#post {
+    padding: 8px 18px;
+    font-size: 13px;
+    border-radius: 999px;       
+    background-color: #9333EA;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+}
+#post:hover {
+    background: #A174FF;
+}
+.left,.right{
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    min-height: 0;
+    height: calc(100% - 30px);
+    color: #E5E5E5;
+}
+.left::-webkit-scrollbar,
+.right::-webkit-scrollbar {
+    width: 8px;
+}
+
+.left::-webkit-scrollbar-track,
+.right::-webkit-scrollbar-track {
+    background: #1A1528;        /* matches inside-content bg */
+    border-radius: 10px;
+}
+
+.left::-webkit-scrollbar-thumb,
+.right::-webkit-scrollbar-thumb {
+    background-color: #9333EA; /* purple accent */
+    border-radius: 10px;
+    border: 2px solid #1A1528; /* gives spacing effect */
+}
+
+.left::-webkit-scrollbar-thumb:hover,
+.right::-webkit-scrollbar-thumb:hover {
+    background-color: #A174FF;
+}
+.inside-content{
+    background-color: #1A1528;
+}
+.section-header{
+    display:inline-flex;
+    gap: 15px;
+}
+.section-header button{
+    background-color: #9333EA;
+}
+.section-header button:hover{
+    background-color: #A174FF;
+}
+.empty-state {
+    font-size: 18px;
+    opacity: 0.6;
+    justify-content: center;
+    padding: 10px 0;
+    font-style: italic;
+}
+.about-page{
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    box-sizing: border-box;
+}
+.about-page h3{
+    padding: 30px 20px 20px 20px;
+}
+.about-page p{
+    font-size: 16px;
+}
+.trending{
+    margin-top: 0;  
+    padding: 10px;
+}
+img{
+    height: 150px;
+    width: auto;
+    border-radius: 8px;
+    object-fit: cover ;
+    margin: 10px ;
+}
+footer{
+    width: 100%;
+    position: fixed;
+    background-color: #1A1528;
+    bottom: 0;
+    left: 0;
+    margin: 0px;
+    color:#E5E5E5;
+}
+header{
+    background-color: #1A1528;
+    color:#FFFFFF;
+    margin-bottom: 1px;
+}
+.trending-header header{
+    width: 100%;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background-color: #1A1528;
+}
+.trending-footer footer{
+    position: relative;
+    height: auto;
+    padding-bottom: 0px;
+    margin: 0px;
+    background-color: #1A1528;
+}
+header p{
+    font-family: "rocknroll-one-regular", sans-serif;
+    letter-spacing: 1px;
+}
+@media(max-width:900px){
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+        font-size: smaller;
+    }
+    h1 {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+        word-wrap: break-word;
+        margin: 0 1rem;
+    }
+    .home-page{
+        grid-template-columns: 1fr;
+    } 
+    
+}
