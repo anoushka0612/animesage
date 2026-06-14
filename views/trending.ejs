@@ -20,6 +20,11 @@
                                     }
                     %>
                     <li> synopsis : <%= synopsis %></li>
+                    <button onclick="toggleWatchlist(this, this.dataset.anime)"
+                                    data-anime="<%= JSON.stringify(anime).replace(/"/g, '&quot;') %>"
+                                    class="btn btn-secondary rounded-pill px-3 watchlist-btn">
+                                    Add to Watchlist
+                    </button>
                 </ul>
             <% }) %>    
         <% } %>

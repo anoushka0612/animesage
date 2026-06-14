@@ -157,6 +157,9 @@ h3{
     margin-top: 0;  
     padding: 10px;
 }
+#watchlist-container {
+    padding-bottom: 60px;
+}
 img{
     height: 150px;
     width: auto;

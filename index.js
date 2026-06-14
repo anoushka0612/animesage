@@ -16,7 +16,7 @@ app.get("/", async(req,res) => {
     }
     catch(error){
         console.error("Failed to fetch genres: ",error.message);
-        es.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error");
     }
 })
 
@@ -63,6 +63,10 @@ app.get("/trending", async(req,res)=>{
     catch(error){
         console.error("Failed to make a request: ",error.message);
     }
+})
+
+app.get("/watchlist",(req,res)=>{
+    res.render("watchlist.ejs");
 })
  
 app.get("/about",(req,res)=>{
